@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003"
+         DefaultTargets="default">
+
+	<PropertyGroup>
+		<root>$(MSBuildProjectDirectory)</root>
+		<SourceDir>$(root)/../src</SourceDir>
+		<BinDir>$(root)/../bin</BinDir>
+		<LibDir>$(root)/../lib</LibDir>
+		<Configuration>Release</Configuration>
+		<Platform>Any CPU</Platform>
+		<BuildConfigurationProperties>Configuration=$(Configuration);Platform=$(Platform)</BuildConfigurationProperties>
+	</PropertyGroup>
+
+	<Target Name="default" 
+           DependsOnTargets="CleanUp; Adapter" />
+
+	<Target Name="CleanUp">   
+		<ItemGroup>
+			<BinFiles Include="$(BinDir)/**/*" />
+		</ItemGroup> 
+		<Delete Files="@(BinFiles)"
+              Condition = "Exists('$(BinDir)')" />
+		<MakeDir Directories = "$(BinDir)" 
+               Condition = "!Exists('$(BinDir)')"/>
+	</Target>
+
+	<Target Name="Adapter">
+		<MSBuild Projects="$(SourceDir)/Piwik4SP/Piwik4SP.sln" 
+               Properties="$(BuildConfigurationProperties)"/>
+		<GetAssemblyIdentity AssemblyFiles="$(BinDir)\Piwik4SP.dll">
+			<Output TaskParameter="Assemblies"
+            ItemName="PiwikAsembly" />
+		</GetAssemblyIdentity>
+		<Copy SourceFiles="$(BinDir)\Piwik4SP.wsp"
+            DestinationFiles="$(BinDir)\Piwik4SP.%(PiwikAsembly.Version).wsp" />
+		<Delete Files="$(BinDir)\Piwik4SP.wsp;$(BinDir)\Piwik4SP.dll;$(BinDir)\Piwik4SP.pdb" />
+	</Target>
+</Project>

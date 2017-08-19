@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="4f15b135-d25f-4949-a6f7-431d5d8bde92" solutionId="4f15b135-d25f-4949-a6f7-431d5d8bde92" resetWebServer="false" name="Piwik4SP" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="e06d5569-1fa3-415b-a973-cd01be6afed9" />
+  </features>
+</package>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="SiteAssets">
+    <File Path="SiteAssets\Piwik4SP\piwik.js" Url="SiteAssets/Piwik4SP/piwik.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" ReplaceContent="TRUE" />
+    <File Path="SiteAssets\Piwik4SP\PiwikSettings.aspx" Url="SiteAssets/Piwik4SP/PiwikSettings.aspx" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" ReplaceContent="TRUE" />
+    <File Path="SiteAssets\Piwik4SP\PiwikSettings.js" Url="SiteAssets/Piwik4SP/PiwikSettings.js" Type="GhostableInLibrary" IgnoreIfAlreadyExists="TRUE" ReplaceContent="TRUE" />
+  </Module>
+</Elements>
